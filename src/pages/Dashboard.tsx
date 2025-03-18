@@ -5,26 +5,26 @@ const tabs = [
   { id: 'powerbi', label: 'Power BI File' },
   { id: 'tableau', label: 'Tableau File' },
   { id: 'report', label: 'Report File PDF' },
-  { id: 'forecasting', label: 'Data-Forecasting' },
-  { id: 'mining', label: 'Data-Mining' }
+  // { id: 'forecasting', label: 'Data-Forecasting' },
+  // { id: 'mining', label: 'Data-Mining' }
 ];
 
 const reports = [
   { id: 'powerbi-report', name: 'Power BI Analysis Report', path: '/assets/pdf/powerbi-report.pdf', type: 'pdf' },
   { id: 'tableau-report', name: 'Tableau Visualization Report', path: '/assets/pdf/tableau-report.pdf', type: 'pdf' },
-  { id: 'final-report', name: 'Final Project Report', path: '/assets/pdf/final-report.pdf', type: 'pdf' },
+  { id: 'final-report', name: 'Final Project Report', path: '/public/assets/pdf/powerbi.pdf', type: 'pdf' },
   { id: 'forecast-report', name: 'Forecast Report', path: '/assets/pdf/forecast-report.pdf', type: 'pdf' },
   { id: 'jupyter-notebook', name: 'Jupiter Notebook Code', path: '/assets/forecast.ipynb', type: 'jupyter' },
   { id: 'mining-report', name: 'Data Mining Report', path: '/assets/pdf/data-mining-report.pdf', type: 'pdf' },
   { id: 'mining-dashboard', name: 'Dashboard', path: '/assets/dashboard.xlsx', type: 'excel' }
 ];
 
-// const stats = [
-//   { label: 'Total Users', value: '1,234', icon: <Users className="w-6 h-6" /> },
-//   { label: 'Reports Generated', value: '56', icon: <FileSpreadsheet className="w-6 h-6" /> },
-//   { label: 'Data Points', value: '89,012', icon: <BarChart3 className="w-6 h-6" /> },
-//   { label: 'Growth Rate', value: '23%', icon: <TrendingUp className="w-6 h-6" /> },
-// ];
+const stats = [
+  { label: 'Total Users', value: '1,234', icon: <Users className="w-6 h-6" /> },
+  { label: 'Reports Generated', value: '56', icon: <FileSpreadsheet className="w-6 h-6" /> },
+  { label: 'Data Points', value: '89,012', icon: <BarChart3 className="w-6 h-6" /> },
+  { label: 'Growth Rate', value: '23%', icon: <TrendingUp className="w-6 h-6" /> },
+];
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('powerbi');
@@ -249,7 +249,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat, index) => (
           <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
             <div className="flex items-center gap-4">
@@ -263,7 +263,7 @@ export default function Dashboard() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
 
       {renderContent()}
     </div>

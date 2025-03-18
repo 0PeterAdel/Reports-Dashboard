@@ -5,13 +5,13 @@ const files = [
   {
     id: 'mining-report',
     name: 'Data Mining Report',
-    path: '/assets/pdf/data-mining-report.pdf',
+    path: '/public/assets/pdf/09.Data-Mining/Data-Mining.pdf',
     type: 'pdf'
   },
   {
     id: 'mining-dashboard',
     name: 'Dashboard',
-    path: '/assets/dashboard.xlsx',
+    path: '/public/assets/pdf/09.Data-Mining/Dashboard.pdf',
     type: 'excel'
   }
 ];

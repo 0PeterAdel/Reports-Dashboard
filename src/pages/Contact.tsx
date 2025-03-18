@@ -57,7 +57,7 @@ export default function Contact() {
           </form>
         </div>
 
-        <div className="space-y-6">
+        {/* <div className="space-y-6">
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-xl font-semibold mb-6">Contact Information</h2>
             <div className="space-y-4">
@@ -99,7 +99,7 @@ export default function Contact() {
               <p className="text-gray-600">Sunday: Closed</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
