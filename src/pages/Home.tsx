@@ -8,29 +8,29 @@ const tabs = [
 
 const teamMembers = [
   {
-    name: 'Sarah Johnson',
-    role: 'Data Science Lead',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=250&h=250&auto=format&fit=crop'
-  },
-  {
-    name: 'Michael Chen',
-    role: 'ML Engineer',
+    name: 'Mohamed',
+    role: 'Data Analyst Expert',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=250&h=250&auto=format&fit=crop'
   },
   {
-    name: 'Emily Rodriguez',
-    role: 'Data Analyst',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=250&h=250&auto=format&fit=crop'
+    name: 'Peter Adel',
+    role: 'Data Analyst Expert',
+    image: '/public/assets/teams/peter.jpg'
+  },
+  {
+    name: 'Mogemd Rodriguez',
+    role: 'Data Analyst Expert',
+    image: '/public/assets/teams/medoo.JPG'
   },
   {
     name: 'David Kim',
-    role: 'Backend Developer',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=250&h=250&auto=format&fit=crop'
+    role: 'Data Analyst Expert',
+    image: '/public/assets/teams/mohamed.jpg'
   },
   {
-    name: 'Lisa Patel',
-    role: 'UI/UX Designer',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=250&h=250&auto=format&fit=crop'
+    name: 'Zyad sameh',
+    role: 'Data Analyst Expert',
+    image: '/public/assets/teams/zezo.jpg'
   }
 ];
 
@@ -60,8 +60,9 @@ export default function Home() {
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <h2 className="text-2xl font-semibold mb-4">About Us</h2>
             <p className="text-gray-600 mb-4">
-              Data-Dynamos is a cutting-edge data analytics platform that transforms complex data into actionable insights.
-              Our team of experts combines advanced analytics with intuitive visualization to help businesses make informed decisions.
+            Welcome to the Human Resources Dataset Analysis project!
+            This project aims to explore and analyze HR-related data to uncover valuable insights, provide actionable recommendations,
+            and build visualizations to support decision-making within an organization.
             </p>
           </div>
         );

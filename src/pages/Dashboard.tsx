@@ -19,12 +19,12 @@ const reports = [
   { id: 'mining-dashboard', name: 'Dashboard', path: '/assets/dashboard.xlsx', type: 'excel' }
 ];
 
-const stats = [
-  { label: 'Total Users', value: '1,234', icon: <Users className="w-6 h-6" /> },
-  { label: 'Reports Generated', value: '56', icon: <FileSpreadsheet className="w-6 h-6" /> },
-  { label: 'Data Points', value: '89,012', icon: <BarChart3 className="w-6 h-6" /> },
-  { label: 'Growth Rate', value: '23%', icon: <TrendingUp className="w-6 h-6" /> },
-];
+// const stats = [
+//   { label: 'Total Users', value: '1,234', icon: <Users className="w-6 h-6" /> },
+//   { label: 'Reports Generated', value: '56', icon: <FileSpreadsheet className="w-6 h-6" /> },
+//   { label: 'Data Points', value: '89,012', icon: <BarChart3 className="w-6 h-6" /> },
+//   { label: 'Growth Rate', value: '23%', icon: <TrendingUp className="w-6 h-6" /> },
+// ];
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('powerbi');
