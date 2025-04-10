@@ -13,7 +13,7 @@ const tabs = [
 
 const reports = {
   'data-wrangling': [
-    { name: 'Data Wrangling Report', type: 'PDF', size: '2.1 MB', date: '2024-03-15', path: '/assets/reports/data-wrangling-report.pdf' }
+    { name: 'Data Wrangling Report', type: 'PDF', size: '2.1 MB', date: '2024-03-15', path: '/public/assets/Reports/02.Data-Wrangling/Data-Wrangling.pdf' }
   ],
   'exploration': [
     { name: 'Business Questions', type: 'PDF', size: '1.5 MB', date: '2024-03-14', path: '/assets/reports/business-questions.pdf' },
@@ -74,10 +74,10 @@ export default function Reports() {
       </div>
 
       {/* Content Area */}
-      <div className="flex-1 overflow-hidden">
+      <div className="flex-1 overflow-hidden p-8">
         <div className="h-full flex">
           {/* Left Sidebar - Report List */}
-          <div className="w-72 border-r border-gray-200 bg-white overflow-y-auto">
+          <div className="w-72 border-r border-gray-200 bg-white overflow-y-auto rounded-l-lg">
             <div className="p-4">
               <h2 className="text-lg font-semibold text-gray-900 mb-4">Reports</h2>
               <div className="space-y-2">
@@ -105,36 +105,40 @@ export default function Reports() {
           </div>
 
           {/* Main Content - PDF Viewer */}
-          <div className="flex-1 flex flex-col">
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-6">
-                <div>
-                  <h1 className="text-2xl font-bold text-gray-900">{selectedReport.name}</h1>
-                  <p className="text-sm text-gray-500">Last modified: {selectedReport.date}</p>
+          <div className="flex-1 bg-white rounded-r-lg">
+            <div className="h-full flex flex-col">
+              <div className="p-6 border-b border-gray-200">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <h1 className="text-2xl font-bold text-gray-900">{selectedReport.name}</h1>
+                    <p className="text-sm text-gray-500">Last modified: {selectedReport.date}</p>
+                  </div>
+                  <a
+                    href={selectedReport.path}
+                    download
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  >
+                    <Download className="w-4 h-4" />
+                    Download
+                  </a>
                 </div>
-                <a
-                  href={selectedReport.path}
-                  download
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                >
-                  <Download className="w-4 h-4" />
-                  Download
-                </a>
               </div>
               
               {/* PDF Viewer */}
-              <div className="bg-gray-100 rounded-lg flex-1">
-                {selectedReport.type === 'PDF' ? (
-                  <iframe
-                    src={selectedReport.path}
-                    className="w-full h-[600px] rounded-lg"
-                    title="PDF Viewer"
-                  />
-                ) : (
-                  <div className="w-full h-[600px] flex items-center justify-center text-gray-500">
-                    This file type cannot be previewed. Please download to view.
-                  </div>
-                )}
+              <div className="flex-1 min-h-0 p-6">
+                <div className="h-full bg-gray-100 rounded-lg overflow-hidden">
+                  {selectedReport.type === 'PDF' ? (
+                    <iframe
+                      src={selectedReport.path}
+                      className="w-full h-full"
+                      title="PDF Viewer"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-gray-500">
+                      This file type cannot be previewed. Please download to view.
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>

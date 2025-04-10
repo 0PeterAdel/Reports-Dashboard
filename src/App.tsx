@@ -8,6 +8,7 @@ import DataSet from './pages/DataSet';
 import Contact from './pages/Contact';
 import DataForecasting from './pages/DataForecasting';
 import DataMining from './pages/DataMining';
+import DecisionMaking from './pages/DecisionMaking';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="data-forecasting" element={<DataForecasting />} />
           <Route path="data-mining" element={<DataMining />} />
+          <Route path="decision-making" element={<DecisionMaking />} />
           <Route path="reports" element={<Reports />} />
           <Route path="data-set" element={<DataSet />} />
           <Route path="contact" element={<Contact />} />

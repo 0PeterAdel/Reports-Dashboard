@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Github, ExternalLink } from 'lucide-react';
 
 const tabs = [
   { id: 'overview', label: 'Overview' },
@@ -8,29 +9,34 @@ const tabs = [
 
 const teamMembers = [
   {
-    name: 'Mohamed',
+    name: 'Ahmed Emad Habib',
     role: 'Data Analyst Expert',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=250&h=250&auto=format&fit=crop'
+    image: '/public/assets/teams/MM.jpg',
+    portfolio: 'https://www.linkedin.com/in/ahmed-emad-730b12273'
   },
   {
-    name: 'Peter Adel',
+    name: 'Peter Rafat Adel',
     role: 'Data Analyst Expert',
-    image: '/public/assets/teams/peter.jpg'
+    image: '/public/assets/teams/peter.jpg',
+    portfolio: 'https://peteradel.netlify.app'
   },
   {
-    name: 'Mogemd Rodriguez',
+    name: 'Mohammed Elhossiny',
     role: 'Data Analyst Expert',
-    image: '/public/assets/teams/medoo.JPG'
+    image: '/public/assets/teams/medoo.JPG',
+    portfolio: 'https://emily-rodriguez.com'
   },
   {
-    name: 'David Kim',
+    name: 'Mohammed Amgad',
     role: 'Data Analyst Expert',
-    image: '/public/assets/teams/mohamed.jpg'
+    image: '/public/assets/teams/mohamed.jpg',
+    portfolio: 'https://mamgdofficial.wixsite.com/mohammed-amgd-1'
   },
   {
-    name: 'Zyad sameh',
+    name: 'Zyad Sameh Mohamed',
     role: 'Data Analyst Expert',
-    image: '/public/assets/teams/zezo.jpg'
+    image: '/public/assets/teams/zezo.jpg',
+    portfolio: 'https://www.linkedin.com/in/zyad-sameh-mohamed-47578b2b7'
   }
 ];
 
@@ -43,14 +49,23 @@ export default function Home() {
         return (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
                 <img
                   src={member.image}
                   alt={member.name}
                   className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
                 />
                 <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                <p className="text-gray-600">{member.role}</p>
+                <p className="text-gray-600 mb-4">{member.role}</p>
+                <a
+                  href={member.portfolio}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Portfolio
+                </a>
               </div>
             ))}
           </div>
@@ -61,8 +76,7 @@ export default function Home() {
             <h2 className="text-2xl font-semibold mb-4">About Us</h2>
             <p className="text-gray-600 mb-4">
             Welcome to the Human Resources Dataset Analysis project!
-            This project aims to explore and analyze HR-related data to uncover valuable insights, provide actionable recommendations,
-            and build visualizations to support decision-making within an organization.
+            This project aims to explore and analyze HR-related data to uncover valuable insights, provide actionable recommendations, and build visualizations to support decision-making within an organization.
             </p>
           </div>
         );
@@ -71,9 +85,18 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h2 className="text-xl font-semibold mb-4">Project Overview</h2>
-              <p className="text-gray-600">
+              <p className="text-gray-600 mb-4">
                 Comprehensive data analysis and visualization platform for making informed business decisions.
               </p>
+              <a
+                href="https://github.com/0PeterAdel/Data-Dyanamos"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+              >
+                <Github className="w-5 h-5" />
+                View on GitHub
+              </a>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h2 className="text-xl font-semibold mb-4">Quick Stats</h2>

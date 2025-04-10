@@ -3,12 +3,11 @@ import { FileSpreadsheet, Download, Eye } from 'lucide-react';
 
 export default function DataSet() {
   const datasets = [
-    { name: 'Sales Data 2024', size: '2.4MB', lastModified: '2024-03-15' },
-    { name: 'Customer Analytics', size: '1.8MB', lastModified: '2024-03-14' },
-    { name: 'Market Research', size: '3.1MB', lastModified: '2024-03-13' },
-    { name: 'Product Metrics', size: '1.2MB', lastModified: '2024-03-12' },
-    { name: 'User Behavior', size: '2.7MB', lastModified: '2024-03-11' },
-    { name: 'Performance Data', size: '1.5MB', lastModified: '2024-03-10' },
+    { name: 'Employee', size: '230KB', lastModified: '2024-03-15' },
+    { name: 'Performance Rating', size: '293KB', lastModified: '2024-03-14' },
+    { name: 'Education Level', size: '117B', lastModified: '2024-03-13' },
+    { name: 'Rating Level', size: '125B', lastModified: '2024-03-12' },
+    { name: 'Satisfied Level', size: '115B', lastModified: '2024-03-11' },
   ];
 
   return (
