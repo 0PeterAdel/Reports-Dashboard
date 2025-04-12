@@ -24,7 +24,7 @@ const teamMembers = [
     name: 'Mohammed Elhossiny',
     role: 'Data Analyst Expert',
     image: '/public/assets/teams/medoo.JPG',
-    portfolio: 'https://emily-rodriguez.com'
+    portfolio: 'https://www.linkedin.com/in/mohammed-elhossiny'
   },
   {
     name: 'Mohammed Amgad',
