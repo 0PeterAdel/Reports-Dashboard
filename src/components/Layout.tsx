@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { Home, LayoutDashboard, FileText, Database, Contact, Cuboid as Cube, LineChart, PieChart, Brain } from 'lucide-react';
+import { Home, LayoutDashboard, FileText, Database, Contact, Cuboid as Cube, LineChart, PieChart, Brain, BarChart as ChartBar } from 'lucide-react';
 
 const navItems = [
   { id: 'home', label: 'Home', icon: <Home className="w-5 h-5" />, to: '/' },
@@ -8,6 +8,7 @@ const navItems = [
   { id: 'forecasting', label: 'Data-Forecasting', icon: <LineChart className="w-5 h-5" />, to: '/data-forecasting' },
   { id: 'mining', label: 'Data-Mining', icon: <PieChart className="w-5 h-5" />, to: '/data-mining' },
   { id: 'decision', label: 'Data-Driven-Decision-Making', icon: <Brain className="w-5 h-5" />, to: '/decision-making' },
+  { id: 'market-research', label: 'Market Research', icon: <ChartBar className="w-5 h-5" />, to: '/market-research' },
   { id: 'reports', label: 'Reports', icon: <FileText className="w-5 h-5" />, to: '/reports' },
   { id: 'data-set', label: 'Data-Set', icon: <Database className="w-5 h-5" />, to: '/data-set' },
   { id: 'contact', label: 'Contact', icon: <Contact className="w-5 h-5" />, to: '/contact' },

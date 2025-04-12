@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import MarketResearch from './pages/MarketResearch';
 import Reports from './pages/Reports';
 import DataSet from './pages/DataSet';
 import Contact from './pages/Contact';
@@ -20,6 +21,7 @@ function App() {
           <Route path="data-forecasting" element={<DataForecasting />} />
           <Route path="data-mining" element={<DataMining />} />
           <Route path="decision-making" element={<DecisionMaking />} />
+          <Route path="market-research" element={<MarketResearch />} />
           <Route path="reports" element={<Reports />} />
           <Route path="data-set" element={<DataSet />} />
           <Route path="contact" element={<Contact />} />
