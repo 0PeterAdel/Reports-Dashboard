@@ -73,21 +73,56 @@ export default function Home() {
       case 'about':
         return (
           <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h2 className="text-2xl font-semibold mb-4">About Us</h2>
+            <h2 className="text-2xl font-semibold mb-4">About the Project</h2>
             <p className="text-gray-600 mb-4">
-            Welcome to the Human Resources Dataset Analysis project!
-            This project aims to explore and analyze HR-related data to uncover valuable insights, provide actionable recommendations, and build visualizations to support decision-making within an organization.
+              This HR Analysis project is a collaborative effort aimed at harnessing data-driven insights to enhance HR strategies and operations. The initiative includes a full-cycle analytical process—from data collection, cleaning, and exploratory analysis to advanced forecasting and strategic decision-making. Detailed visualizations and mining techniques are used to uncover hidden trends and provide actionable recommendations.
+            </p>
+            <p className="text-gray-600">
+              The project is executed under the esteemed supervision of <strong>EYouth</strong> in collaboration with <strong>DEPI from the Ministry of Communications</strong>. This supervision ensures that the methodologies applied are of the highest standard and align with current industry practices, reinforcing the project’s credibility and commitment to excellence.
+            </p>
+            <p className="text-gray-600 mt-4">
+              By integrating rigorous data science methods with strategic HR insights, this project offers a pioneering approach to managing and optimizing human resource functions in a dynamic business environment.
             </p>
           </div>
         );
+      case 'overview':
       default:
         return (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h2 className="text-xl font-semibold mb-4">Project Overview</h2>
-              <p className="text-gray-600 mb-4">
-                Comprehensive data analysis and visualization platform for making informed business decisions.
-              </p>
+          <div className="bg-white p-6 rounded-lg shadow-sm">
+            <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
+            <p className="text-gray-600 mb-4">
+              This project is dedicated to comprehensive HR Analysis, covering a complete data-driven journey from initial data collection to strategic decision-making. The project is organized into several key steps:
+            </p>
+            <ol className="list-decimal ml-6 text-gray-600 mb-4">
+              <li>
+                <strong>Data Collection:</strong> Gathering essential HR data sets, including employee details, education level, performance ratings, and satisfaction levels.
+              </li>
+              <li>
+                <strong>Data Wrangling & Cleaning:</strong> Transforming raw data into a structured format, identifying and handling missing values, and ensuring consistency across datasets.
+              </li>
+              <li>
+                <strong>Data Exploration & Transformation:</strong> Conducting exploratory analysis to understand underlying patterns and trends in the HR data. This stage involves transforming the data as needed for deeper insights.
+              </li>
+              <li>
+                <strong>Data Modeling & Analysis:</strong> Building predictive and descriptive models to gain further understanding of workforce dynamics. Detailed analyses are performed to highlight key performance indicators and areas for improvement.
+              </li>
+              <li>
+                <strong>Data Forecasting:</strong> Using statistical and machine learning techniques to forecast future HR trends and challenges, ensuring the project remains forward-thinking.
+              </li>
+              <li>
+                <strong>Data Visualization:</strong> Creating engaging visual representations of the data using advanced tools like Power BI, Tableau, and Looker Studio to communicate insights effectively.
+              </li>
+              <li>
+                <strong>Data Mining:</strong> Extracting valuable patterns and trends from vast datasets, providing actionable insights for HR strategies.
+              </li>
+              <li>
+                <strong>Data-Driven Decision Making:</strong> Integrating various analysis frameworks to drive strategy, including Five Forces Analysis, Value Chain Analysis, Blue Ocean Strategy Report, Market Research & Visualization, and PESTEL, SWOT, SOAR, TOWS, and VRIO Analysis Reports.
+              </li>
+            </ol>
+            <p className="text-gray-600">
+              Each step builds upon the previous one, ensuring a robust and well-rounded analysis designed to inform and support strategic HR decisions.
+            </p>
+            <div className="mt-4">
               <a
                 href="https://github.com/0PeterAdel/Data-Dyanamos"
                 target="_blank"
@@ -97,27 +132,6 @@ export default function Home() {
                 <Github className="w-5 h-5" />
                 View on GitHub
               </a>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h2 className="text-xl font-semibold mb-4">Quick Stats</h2>
-              <div className="space-y-4">
-                <div>
-                  <p className="text-sm text-gray-500">Total Reports</p>
-                  <p className="text-2xl font-bold text-blue-600">24</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Active Projects</p>
-                  <p className="text-2xl font-bold text-blue-600">8</p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
-              <ul className="space-y-3">
-                <li className="text-gray-600">Data analysis report updated</li>
-                <li className="text-gray-600">New visualization added</li>
-                <li className="text-gray-600">Dataset cleaned and processed</li>
-              </ul>
             </div>
           </div>
         );
