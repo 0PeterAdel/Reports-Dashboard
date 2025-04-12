@@ -56,50 +56,6 @@ export default function Contact() {
             </button>
           </form>
         </div>
-
-        <div className="space-y-6">
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-xl font-semibold mb-6">Contact Information</h2>
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="p-2 bg-blue-50 rounded-lg text-blue-600">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Email</p>
-                  <p className="font-medium">contact@data-dynamos.com</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="p-2 bg-blue-50 rounded-lg text-blue-600">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Phone</p>
-                  <p className="font-medium">+1 (555) 123-4567</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="p-2 bg-blue-50 rounded-lg text-blue-600">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Address</p>
-                  <p className="font-medium">123 Data Street, Analytics City, 12345</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-xl font-semibold mb-4">Office Hours</h2>
-            <div className="space-y-2">
-              <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-              <p className="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
-              <p className="text-gray-600">Sunday: Closed</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
