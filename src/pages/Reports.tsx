@@ -21,23 +21,23 @@ const reports = {
   ],
   'analysis': [
     { name: 'Analysis Report', type: 'PDF', size: '3.2 MB', date: '2024-03-13', path: '/public/assets/Reports/06.Data-Analysis/Analysis-Report.pdf' },
-    { name: 'Jupyter Notebook', type: 'ipynb', size: '856 KB', date: '2024-03-13', path: '/public/assets/Reports/analysis.ipynb' }
+    { name: 'Jupyter Notebook', type: 'html', size: '856 KB', date: '2024-03-13', path: '/public/assets/Reports/06.Data-Analysis/analysis-part1.html' },
+    { name: 'Jupyter Notebook', type: 'html', size: '856 KB', date: '2024-03-13', path: '/public/assets/Reports/06.Data-Analysis/analysis-part2.html' }
   ],
   'forecasting': [
-    { name: 'Forecast Report', type: 'PDF', size: '2.8 MB', date: '2024-03-12', path: '/public/assets/Reports/' },
-    { name: 'Jupyter Notebook', type: 'ipynb', size: '1.2 MB', date: '2024-03-12', path: '/public/assets/Reports/forecast.ipynb' }
+    { name: 'Forecast Report', type: 'PDF', size: '2.8 MB', date: '2024-03-12', path: '/public/assets/Reports/07.Data-Forecasting/Forecast-Report.pdf' },
+    { name: 'Jupyter Notebook', type: 'ipynb', size: '1.2 MB', date: '2024-03-12', path: '/public/assets/Reports/07.Data-Forecasting/main.html' }
   ],
   'visualization': [
-    { name: 'Visualization Report', type: 'PDF', size: '4.1 MB', date: '2024-03-11', path: '/public/assets/Reports/' },
-    { name: 'Power BI Dashboard', type: 'pbix', size: '5.2 MB', date: '2024-03-11', path: '/public/assets/Reports/dashboard.pbix' },
-    { name: 'Tableau Workbook', type: 'twb', size: '4.8 MB', date: '2024-03-11', path: '/assets/tableau/workbook.twb' }
+    { name: 'Power BI Dashboard', type: 'PDF', size: '4.1 MB', date: '2024-03-11', path: '/public/assets/Reports/08.Data-Visualization/Power-Bi/Data Dynamos Data Analysis.pdf' },
+    { name: 'Tableau Dashboard', type: 'twb', size: '4.8 MB', date: '2024-03-11', path: '/public/assets/Reports/08.Data-Visualization/Tableau/Data Dynamos Data Forecasting.pdf' }
   ],
   'data-mining': [
-    { name: 'Data Mining Report', type: 'PDF', size: '2.9 MB', date: '2024-03-10', path: '/public/assets/Reports/' },
-    { name: 'Dashboard', type: 'PDF', size: '1.8 MB', date: '2024-03-10', path: '/public/assets/Reports/' }
+    { name: 'Data Mining Report', type: 'PDF', size: '2.9 MB', date: '2024-03-10', path: '/public/assets/Reports/09.Data-Mining/Data-Mining.pdf' },
+    { name: 'Dashboard', type: 'PDF', size: '1.8 MB', date: '2024-03-10', path: '/public/assets/Reports/09.Data-Mining/Dashboard.pdf' }
   ],
   'data-storage': [
-    { name: 'Storage Report', type: 'PDF', size: '1.6 MB', date: '2024-03-09', path: '/public/assets/Reports/' }
+    { name: 'Storage Report', type: 'PDF', size: '1.6 MB', date: '2024-03-09', path: '/public/assets/Reports/Data-Storage-Report.pdf' }
   ]
 };
 
@@ -48,6 +48,15 @@ export default function Reports() {
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
     setSelectedReport(reports[tabId][0]);
+  };
+
+  // Function to check if the file should be previewed in an iframe.
+  const canPreviewInIframe = (report: { type: string; path: string }) => {
+    const typeLower = report.type.toLowerCase();
+    return (
+      ['pdf', 'html'].includes(typeLower) ||
+      report.path.toLowerCase().endsWith('.html')
+    );
   };
 
   return (
@@ -104,7 +113,7 @@ export default function Reports() {
             </div>
           </div>
 
-          {/* Main Content - PDF Viewer */}
+          {/* Main Content - Viewer */}
           <div className="flex-1 bg-white rounded-r-lg">
             <div className="h-full flex flex-col">
               <div className="p-6 border-b border-gray-200">
@@ -124,14 +133,14 @@ export default function Reports() {
                 </div>
               </div>
               
-              {/* PDF Viewer */}
+              {/* Document Viewer */}
               <div className="flex-1 min-h-0 p-6">
                 <div className="h-full bg-gray-100 rounded-lg overflow-hidden">
-                  {selectedReport.type === 'PDF' ? (
+                  {canPreviewInIframe(selectedReport) ? (
                     <iframe
                       src={selectedReport.path}
                       className="w-full h-full"
-                      title="PDF Viewer"
+                      title="Document Viewer"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-gray-500">
