@@ -15,43 +15,43 @@ const reports = [
     {
         id: 'Market-Research-Analysis-Report',
         name: 'Market Research Report',
-        path: '/public/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market Research Report for HR Data/Market Research Analysis Report for HR Data.pdf',
+        path: '/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market Research Report for HR Data/Market Research Analysis Report for HR Data.pdf',
         type: 'pdf'
     },
     {
         id: 'excel-dashboard',
         name: 'Excel Dashboard',
-        path: '/public/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market-Research (Dashboard)/Market-Research (Excel Dashboards).pdf',
+        path: '/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market-Research (Dashboard)/Market-Research (Excel Dashboards).pdf',
         type: 'pdf'
     },
     {
         id: 'LookerStudio-dashboard',
         name: 'LookerStudio Sashboard',
-        path: '/public/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market-Research (Dashboard)/HR_Market_Research_(Data_Dynamos_Team) Looker Studio.pdf',
+        path: '/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market-Research (Dashboard)/HR_Market_Research_(Data_Dynamos_Team) Looker Studio.pdf',
         type: 'pdf'
     },
     {
         id: 'Market-Research-Data',
         name: 'Market Research (Data)',
-        path: '/public/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market Research (Data).xlsx',
+        path: '/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market Research (Data).xlsx',
         type: 'excel'
     },
     {
         id: 'Market-Research-Material',
         name: 'Market Research (Material)',
-        path: '/public/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market Research (Material).xlsx',
+        path: '/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market Research (Material).xlsx',
         type: 'excel'
     },
     {
         id: 'Market-Research-Analysis-Report',
         name: 'Market Research Analysis Report',
-        path: '/public/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market Research Report for HR Data/Market Research Analysis Report for HR Data.xlsx',
+        path: '/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market Research Report for HR Data/Market Research Analysis Report for HR Data.xlsx',
         type: 'excel'
     },
     {
         id: 'Market-Research-Consolidated',
         name: 'Market-Research Consolidated',
-        path: '/public/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market-Research(Looker Studio Data Visualisation)/Market-Research - Consolidated.xlsx',
+        path: '/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market-Research(Looker Studio Data Visualisation)/Market-Research - Consolidated.xlsx',
         type: 'excel'
     }
 ];
@@ -79,7 +79,7 @@ export default function MarketResearch() {
         return (
             <div className="h-[calc(100%-3rem)] bg-gray-100 rounded-lg overflow-hidden">
                 <iframe
-                    src="/public/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market-Research (Dashboard)/Market-Research (Excel Dashboards).pdf"
+                    src="/assets/Reports/10.Data-Driven-Decision-Making/0.Market Research/Market-Research (Dashboard)/Market-Research (Excel Dashboards).pdf"
                     className="w-full h-full"
                     title="Excel Dashboard"
                 />

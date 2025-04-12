@@ -13,31 +13,31 @@ const tabs = [
 
 const reports = {
   'data-wrangling': [
-    { name: 'Data Wrangling Report', type: 'PDF', size: '2.1 MB', date: '2024-03-15', path: '/public/assets/Reports/02.Data-Wrangling/Data-Wrangling.pdf' }
+    { name: 'Data Wrangling Report', type: 'PDF', size: '2.1 MB', date: '2024-03-15', path: '/assets/Reports/02.Data-Wrangling/Data-Wrangling.pdf' }
   ],
   'exploration': [
-    { name: 'Business Questions', type: 'PDF', size: '1.5 MB', date: '2024-03-14', path: '/public/assets/Reports/04.Data-Exploration&Transformation/Business-Questions&KPI.pdf' },
-    { name: 'HR Domain Guide', type: 'PDF', size: '2.3 MB', date: '2024-03-14', path: '/public/assets/Reports/04.Data-Exploration&Transformation/HR-Domain-Guide.pdf' }
+    { name: 'Business Questions', type: 'PDF', size: '1.5 MB', date: '2024-03-14', path: '/assets/Reports/04.Data-Exploration&Transformation/Business-Questions&KPI.pdf' },
+    { name: 'HR Domain Guide', type: 'PDF', size: '2.3 MB', date: '2024-03-14', path: '/assets/Reports/04.Data-Exploration&Transformation/HR-Domain-Guide.pdf' }
   ],
   'analysis': [
-    { name: 'Analysis Report', type: 'PDF', size: '3.2 MB', date: '2024-03-13', path: '/public/assets/Reports/06.Data-Analysis/Analysis-Report.pdf' },
-    { name: 'Jupyter Notebook', type: 'html', size: '856 KB', date: '2024-03-13', path: '/public/assets/Reports/06.Data-Analysis/analysis-part1.html' },
-    { name: 'Jupyter Notebook', type: 'html', size: '856 KB', date: '2024-03-13', path: '/public/assets/Reports/06.Data-Analysis/analysis-part2.html' }
+    { name: 'Analysis Report', type: 'PDF', size: '3.2 MB', date: '2024-03-13', path: '/assets/Reports/06.Data-Analysis/Analysis-Report.pdf' },
+    { name: 'Jupyter Notebook', type: 'html', size: '856 KB', date: '2024-03-13', path: '/assets/Reports/06.Data-Analysis/analysis-part1.html' },
+    { name: 'Jupyter Notebook', type: 'html', size: '856 KB', date: '2024-03-13', path: '/assets/Reports/06.Data-Analysis/analysis-part2.html' }
   ],
   'forecasting': [
-    { name: 'Forecast Report', type: 'PDF', size: '2.8 MB', date: '2024-03-12', path: '/public/assets/Reports/07.Data-Forecasting/Forecast-Report.pdf' },
-    { name: 'Jupyter Notebook', type: 'ipynb', size: '1.2 MB', date: '2024-03-12', path: '/public/assets/Reports/07.Data-Forecasting/main.html' }
+    { name: 'Forecast Report', type: 'PDF', size: '2.8 MB', date: '2024-03-12', path: '/assets/Reports/07.Data-Forecasting/Forecast-Report.pdf' },
+    { name: 'Jupyter Notebook', type: 'ipynb', size: '1.2 MB', date: '2024-03-12', path: '/assets/Reports/07.Data-Forecasting/main.html' }
   ],
   'visualization': [
-    { name: 'Power BI Dashboard', type: 'PDF', size: '4.1 MB', date: '2024-03-11', path: '/public/assets/Reports/08.Data-Visualization/Power-Bi/Data Dynamos Data Analysis.pdf' },
-    { name: 'Tableau Dashboard', type: 'twb', size: '4.8 MB', date: '2024-03-11', path: '/public/assets/Reports/08.Data-Visualization/Tableau/Data Dynamos Data Forecasting.pdf' }
+    { name: 'Power BI Dashboard', type: 'PDF', size: '4.1 MB', date: '2024-03-11', path: '/assets/Reports/08.Data-Visualization/Power-Bi/Data Dynamos Data Analysis.pdf' },
+    { name: 'Tableau Dashboard', type: 'twb', size: '4.8 MB', date: '2024-03-11', path: '/assets/Reports/08.Data-Visualization/Tableau/Data Dynamos Data Forecasting.pdf' }
   ],
   'data-mining': [
-    { name: 'Data Mining Report', type: 'PDF', size: '2.9 MB', date: '2024-03-10', path: '/public/assets/Reports/09.Data-Mining/Data-Mining.pdf' },
-    { name: 'Dashboard', type: 'PDF', size: '1.8 MB', date: '2024-03-10', path: '/public/assets/Reports/09.Data-Mining/Dashboard.pdf' }
+    { name: 'Data Mining Report', type: 'PDF', size: '2.9 MB', date: '2024-03-10', path: '/assets/Reports/09.Data-Mining/Data-Mining.pdf' },
+    { name: 'Dashboard', type: 'PDF', size: '1.8 MB', date: '2024-03-10', path: '/assets/Reports/09.Data-Mining/Dashboard.pdf' }
   ],
   'data-storage': [
-    { name: 'Storage Report', type: 'PDF', size: '1.6 MB', date: '2024-03-09', path: '/public/assets/Reports/Data-Storage-Report.pdf' }
+    { name: 'Storage Report', type: 'PDF', size: '1.6 MB', date: '2024-03-09', path: '/assets/Reports/Data-Storage-Report.pdf' }
   ]
 };
 

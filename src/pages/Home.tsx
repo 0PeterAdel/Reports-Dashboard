@@ -23,19 +23,19 @@ const teamMembers = [
   {
     name: 'Mohammed Elhossiny',
     role: 'Data Analyst Expert',
-    image: '/public/assets/teams/medoo.JPG',
+    image: '/assets/teams/medoo.JPG',
     portfolio: 'https://www.linkedin.com/in/mohammed-elhossiny'
   },
   {
     name: 'Mohammed Amgad',
     role: 'Data Analyst Expert',
-    image: '/public/assets/teams/mohamed.jpg',
+    image: '/assets/teams/mohamed.jpg',
     portfolio: 'https://mamgdofficial.wixsite.com/mohammed-amgd-1'
   },
   {
     name: 'Zyad Sameh Mohamed',
     role: 'Data Analyst Expert',
-    image: '/public/assets/teams/zezo.jpg',
+    image: '/assets/teams/zezo.jpg',
     portfolio: 'https://www.linkedin.com/in/zyad-sameh-mohamed-47578b2b7'
   }
 ];

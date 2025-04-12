@@ -5,13 +5,13 @@ const files = [
   { 
     id: 'jupyter-notebook',
     name: 'Jupiter Notebook Code',
-    path: '/public/assets/Reports/07.Data-Forecasting/main.html',
+    path: '/assets/Reports/07.Data-Forecasting/main.html',
     type: 'jupyter'
   },
   {
     id: 'forecast-report',
     name: 'Forecast Report',
-    path: '/public/assets/Reports/07.Data-Forecasting/Forecast-Report.pdf',
+    path: '/assets/Reports/07.Data-Forecasting/Forecast-Report.pdf',
     type: 'pdf'
   }
 ];

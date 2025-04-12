@@ -11,24 +11,24 @@ const tabs = [
 
 const analysisFiles = {
   pestel: [
-    { name: 'PESTEL Analysis Report', path: '/public/assets/Reports/10.Data-Driven-Decision-Making/1.PESTEL Analysis Report for HR Data/PESTEL Analysis Report for HR Data.pdf', type: 'pdf' },
-    { name: 'PESTEL Analysis Report Excel', path: '/public/assets/Reports/10.Data-Driven-Decision-Making/1.PESTEL Analysis Report for HR Data/PESTEL Analysis Report for HR Data.xlsx', type: 'excel' },
+    { name: 'PESTEL Analysis Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/1.PESTEL Analysis Report for HR Data/PESTEL Analysis Report for HR Data.pdf', type: 'pdf' },
+    { name: 'PESTEL Analysis Report Excel', path: '/assets/Reports/10.Data-Driven-Decision-Making/1.PESTEL Analysis Report for HR Data/PESTEL Analysis Report for HR Data.xlsx', type: 'excel' },
   ],
   swot: [
-    { name: 'SWOT Analysis Overview', path: '/public/assets/Reports/10.Data-Driven-Decision-Making/2.SWOT Analysis Report for HR Data/SWOT Analysis Report for HR Data.pdf', type: 'pdf' },
-    { name: 'SWOT Analysis Excel', path: '/public/assets/Reports/10.Data-Driven-Decision-Making/2.SWOT Analysis Report for HR Data/SWOT Analysis Report for HR Data.xlsx', type: 'excel' },
+    { name: 'SWOT Analysis Overview', path: '/assets/Reports/10.Data-Driven-Decision-Making/2.SWOT Analysis Report for HR Data/SWOT Analysis Report for HR Data.pdf', type: 'pdf' },
+    { name: 'SWOT Analysis Excel', path: '/assets/Reports/10.Data-Driven-Decision-Making/2.SWOT Analysis Report for HR Data/SWOT Analysis Report for HR Data.xlsx', type: 'excel' },
   ],
   soar: [
-    { name: 'SOAR Analysis', path: '/public/assets/Reports/10.Data-Driven-Decision-Making/3.SOAR Analysis Report for HR Data/SOAR Analysis Report for HR Data.pdf', type: 'pdf' },
-    { name: 'Results Dashboard', path: '/public/assets/Reports/10.Data-Driven-Decision-Making/3.SOAR Analysis Report for HR Data/SOAR Analysis Report for HR Data.xlsx', type: 'excel' },
+    { name: 'SOAR Analysis', path: '/assets/Reports/10.Data-Driven-Decision-Making/3.SOAR Analysis Report for HR Data/SOAR Analysis Report for HR Data.pdf', type: 'pdf' },
+    { name: 'Results Dashboard', path: '/assets/Reports/10.Data-Driven-Decision-Making/3.SOAR Analysis Report for HR Data/SOAR Analysis Report for HR Data.xlsx', type: 'excel' },
   ],
   tows: [
-    { name: 'TOWS Analysis Report', path: '/public/assets/Reports/10.Data-Driven-Decision-Making/4.TOWS Analysis Report for HR Data/TOWS Analysis Report for HR Data.pdf', type: 'pdf' },
-    { name: 'TOWS Analysis Report Excel', path: '/public/assets/Reports/10.Data-Driven-Decision-Making/4.TOWS Analysis Report for HR Data/TOWS Analysis Report for HR Data.xlsx', type: 'excel' },
+    { name: 'TOWS Analysis Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/4.TOWS Analysis Report for HR Data/TOWS Analysis Report for HR Data.pdf', type: 'pdf' },
+    { name: 'TOWS Analysis Report Excel', path: '/assets/Reports/10.Data-Driven-Decision-Making/4.TOWS Analysis Report for HR Data/TOWS Analysis Report for HR Data.xlsx', type: 'excel' },
   ],
   vrio: [
-    { name: 'VRIO Analysis Report', path: '/public/assets/Reports/10.Data-Driven-Decision-Making/5.VRIO Analysis Report for HR Data/VRIO Analysis Report for HR Data.pdf', type: 'pdf' },
-    { name: 'VRIO Analysis Excel', path: '/public/assets/Reports/10.Data-Driven-Decision-Making/5.VRIO Analysis Report for HR Data/VRIO Analysis Report for HR Data.xlsx', type: 'excel' },
+    { name: 'VRIO Analysis Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/5.VRIO Analysis Report for HR Data/VRIO Analysis Report for HR Data.pdf', type: 'pdf' },
+    { name: 'VRIO Analysis Excel', path: '/assets/Reports/10.Data-Driven-Decision-Making/5.VRIO Analysis Report for HR Data/VRIO Analysis Report for HR Data.xlsx', type: 'excel' },
   ]
 };
 
