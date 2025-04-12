@@ -11,13 +11,13 @@ const teamMembers = [
   {
     name: 'Ahmed Emad Habib',
     role: 'Data Analyst Expert',
-    image: '/public/assets/teams/MM.jpg',
+    image: '/assets/teams/MM.jpg',
     portfolio: 'https://www.linkedin.com/in/ahmed-emad-730b12273'
   },
   {
     name: 'Peter Rafat Adel',
     role: 'Data Analyst Expert',
-    image: '/public/assets/teams/peter.jpg',
+    image: '/assets/teams/peter.jpg',
     portfolio: 'https://peteradel.netlify.app'
   },
   {
