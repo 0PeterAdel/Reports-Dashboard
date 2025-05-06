@@ -10,6 +10,8 @@ import Contact from './pages/Contact';
 import DataForecasting from './pages/DataForecasting';
 import DataMining from './pages/DataMining';
 import DecisionMaking from './pages/DecisionMaking';
+import Chat from './pages/Chat';
+
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
           <Route path="market-research" element={<MarketResearch />} />
           <Route path="reports" element={<Reports />} />
           <Route path="data-set" element={<DataSet />} />
+          <Route path="chat" element={<Chat />} />
           <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
