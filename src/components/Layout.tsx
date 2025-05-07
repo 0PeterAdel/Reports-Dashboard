@@ -20,7 +20,7 @@ export default function Layout() {
       {/* Sidebar */}
       <div className="w-[280px] bg-white p-6 flex flex-col">
         <div className="flex items-center gap-3 mb-6">
-          <Cube className="w-12 h-12 text-blue-600" />
+          <img src="/public/assets/logo.png" alt="Logo" className="w-12 h-12" />
           <span className="text-2xl font-bold">Data-Dynamos</span>
         </div>
         <hr className="border-gray-200 mb-6" />
