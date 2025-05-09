@@ -7,3 +7,16 @@
   to     = "/index.html"
   status = 200
 
+
+[[redirects]]
+  from = "/chat/*"
+  to   = "http://51.44.18.63:8080/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/chat"
+  to   = "http://51.44.18.63:8080/"
+  status = 200
+  force = true
+
