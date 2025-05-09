@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Loader2 } from 'lucide-react';
+import { Send, Bot, User, Loader2, Upload } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
-import axios from 'axios';
 
 interface Message {
   id: string;
@@ -15,12 +14,13 @@ export default function Chat() {
     {
       id: '1',
       type: 'bot',
-      content: "Hello! I'm your AI assistant. How can I help you today?",
+      content: "Hello! I'm your AI assistant. Please upload a document to start chatting.",
       timestamp: new Date(),
     },
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [files, setFiles] = useState<FileList | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -30,6 +30,43 @@ export default function Chat() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFiles(e.target.files);
+  };
+
+  const handleUpload = async () => {
+    if (!files) {
+      alert('Please select at least one file.');
+      return;
+    }
+
+    const formData = new FormData();
+    for (let file of files) {
+      formData.append('files', file);
+    }
+
+    try {
+      setIsLoading(true);
+      const response = await fetch('http://51.44.18.63:8080/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to upload files');
+      }
+
+      const result = await response.json();
+      alert(result.status); // "Files uploaded and indexed successfully"
+    } catch (error) {
+      console.error('Error uploading files:', error);
+      alert('Failed to upload files. Please try again.');
+    } finally {
+      setIsLoading(false);
+      setFiles(null); // Clear file input
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,29 +84,78 @@ export default function Chat() {
     setIsLoading(true);
 
     try {
-      // إرسال طلب POST إلى الواجهة الخلفية
-      const response = await axios.post('http://51.44.18.63:8080/chat', {
-        message: input,
-        history: messages, // تاريخ المحادثة
-        system_prompt: 'أنت مساعد ذكي.', // يمكن تعديل النص حسب الحاجة
-        temperature: 0.7, // درجة الحرارة للتحكم في الإبداع
-        max_new_tokens: 256, // الحد الأقصى لعدد الرموز في الرد
+      const response = await fetch('http://51.44.18.63:8080/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: input,
+          history: messages.map(msg => ({
+            role: msg.type,
+            content: msg.content,
+          })),
+          system_prompt: 'You are a helpful assistant.',
+          temperature: 0.7,
+          max_new_tokens: 256,
+        }),
       });
 
-      const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        type: 'bot',
-        content: response.data, // افتراض أن الرد يأتي كـ string
-        timestamp: new Date(),
-      };
+      if (!response.ok) {
+        throw new Error('Failed to fetch response');
+      }
 
-      setMessages(prev => [...prev, botMessage]);
+      const reader = response.body?.getReader();
+      if (!reader) {
+        throw new Error('No readable stream available');
+      }
+
+      const decoder = new TextDecoder();
+      let botResponse = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value, { stream: true });
+        botResponse += chunk;
+
+        // Update UI incrementally
+        setMessages(prev => {
+          const updatedMessages = [...prev];
+          const lastMessage = updatedMessages[updatedMessages.length - 1];
+          if (lastMessage.type === 'bot') {
+            lastMessage.content = botResponse;
+          } else {
+            updatedMessages.push({
+              id: (Date.now() + 1).toString(),
+              type: 'bot',
+              content: botResponse,
+              timestamp: new Date(),
+            });
+          }
+          return updatedMessages;
+        });
+      }
+
+      // Finalize the bot message
+      setMessages(prev => {
+        const updatedMessages = [...prev];
+        const lastMessage = updatedMessages[updatedMessages.length - 1];
+        if (lastMessage.type !== 'bot') {
+          updatedMessages.push({
+            id: (Date.now() + 1).toString(),
+            type: 'bot',
+            content: botResponse,
+            timestamp: new Date(),
+          });
+        }
+        return updatedMessages;
+      });
     } catch (error) {
-      console.error('خطأ أثناء إرسال الرسالة:', error);
+      console.error('Error sending message:', error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'bot',
-        content: 'عذرًا، حدث خطأ أثناء معالجة طلبك. حاول مرة أخرى لاحقًا.',
+        content: 'Sorry, an error occurred while processing your request. Please try again later.',
         timestamp: new Date(),
       };
       setMessages(prev => [...prev, errorMessage]);
@@ -95,20 +181,37 @@ export default function Chat() {
             </div>
           </div>
 
+          {/* File Upload */}
+          <div className="p-4 border-b border-gray-200 flex-shrink-0">
+            <div className="flex items-center gap-3">
+              <input
+                type="file"
+                multiple
+                accept=".pdf,.txt"
+                onChange={handleFileChange}
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg"
+                disabled={isLoading}
+              />
+              <button
+                onClick={handleUpload}
+                disabled={isLoading || !files}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Upload className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
           {/* Messages Container */}
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.map((message) => (
               <div
                 key={message.id}
-                className={`flex items-start gap-3 ${
-                  message.type === 'user' ? 'flex-row-reverse' : ''
-                }`}
+                className={`flex items-start gap-3 ${message.type === 'user' ? 'flex-row-reverse' : ''}`}
               >
                 <div
                   className={`p-2 rounded-lg flex-shrink-0 ${
-                    message.type === 'user'
-                      ? 'bg-blue-100'
-                      : 'bg-gray-100'
+                    message.type === 'user' ? 'bg-blue-100' : 'bg-gray-100'
                   }`}
                 >
                   {message.type === 'user' ? (
@@ -119,19 +222,13 @@ export default function Chat() {
                 </div>
                 <div
                   className={`rounded-lg p-4 max-w-[80%] ${
-                    message.type === 'user'
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 text-gray-900'
+                    message.type === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-900'
                   }`}
                 >
-                  <ReactMarkdown className="prose prose-sm max-w-none">
-                    {message.content}
-                  </ReactMarkdown>
+                  <ReactMarkdown className="prose prose-sm max-w-none">{message.content}</ReactMarkdown>
                   <div
                     className={`text-xs mt-2 ${
-                      message.type === 'user'
-                        ? 'text-blue-200'
-                        : 'text-gray-500'
+                      message.type === 'user' ? 'text-blue-200' : 'text-gray-500'
                     }`}
                   >
                     {message.timestamp.toLocaleTimeString()}
