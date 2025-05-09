@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Loader2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import axios from 'axios';
 
 interface Message {
   id: string;
@@ -45,17 +46,36 @@ export default function Chat() {
     setInput('');
     setIsLoading(true);
 
-    // Simulate AI response
-    setTimeout(() => {
+    try {
+      // إرسال طلب POST إلى الواجهة الخلفية
+      const response = await axios.post('http://51.44.18.63:8080/chat', {
+        message: input,
+        history: messages, // تاريخ المحادثة
+        system_prompt: 'أنت مساعد ذكي.', // يمكن تعديل النص حسب الحاجة
+        temperature: 0.7, // درجة الحرارة للتحكم في الإبداع
+        max_new_tokens: 256, // الحد الأقصى لعدد الرموز في الرد
+      });
+
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'bot',
-        content: "I'm a demo AI assistant. In a real implementation, this would be connected to an AI service like OpenAI's GPT or similar.",
+        content: response.data, // افتراض أن الرد يأتي كـ string
         timestamp: new Date(),
       };
+
       setMessages(prev => [...prev, botMessage]);
+    } catch (error) {
+      console.error('خطأ أثناء إرسال الرسالة:', error);
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        type: 'bot',
+        content: 'عذرًا، حدث خطأ أثناء معالجة طلبك. حاول مرة أخرى لاحقًا.',
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
