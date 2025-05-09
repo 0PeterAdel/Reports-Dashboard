@@ -6,7 +6,11 @@ const tabs = [
   { id: 'swot', label: 'SWOT Analysis' },
   { id: 'soar', label: 'SOAR Analysis' },
   { id: 'tows', label: 'TOWS Analysis' },
-  { id: 'vrio', label: 'VRIO Analysis' }
+  { id: 'vrio', label: 'VRIO Analysis' },
+  { id: 'Forces', label: 'Five Forces Analysis' },
+  { id: 'Chain', label: 'Value Chain Analysis' },
+  { id: 'Ocean', label: 'Blue Ocean Strategy' },
+  { id: 'Additional', label: 'Additional Analysis' }
 ];
 
 const analysisFiles = {
@@ -29,7 +33,24 @@ const analysisFiles = {
   vrio: [
     { name: 'VRIO Analysis Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/5.VRIO Analysis Report for HR Data/VRIO Analysis Report for HR Data.pdf', type: 'pdf' },
     { name: 'VRIO Analysis Excel', path: '/assets/Reports/10.Data-Driven-Decision-Making/5.VRIO Analysis Report for HR Data/VRIO Analysis Report for HR Data.xlsx', type: 'excel' },
-  ]
+  ],
+  Forces: [
+    { name: 'Five Forces Analysis Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/06.Five Forces Analysis Report for HR Data/Five Forces Analysis Report for HR Data.pdf', type: 'pdf' },
+  ],
+  Chain: [
+    { name: 'Value Chain Analysis Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/07.Value Chain Analysis Report for HR Data/Value Chain Analysis Report for HR Data.pdf', type: 'pdf' },
+  ],
+  Ocean: [
+    { name: 'Blue Ocean Strategy Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/08.Blue Ocean Strategy Report for HR Data/Blue Ocean Strategy (ERRC Analysis )Report for HR Data.pdf', type: 'pdf' },
+  ],
+  Additional: [
+    { name: 'Turnover & KPI Analysis', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/Turnover & KPI Analysis.ipynb', type: 'pdf' },
+    { name: 'Turnover & KPI Analysis Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/Turnover & KPI Analysis.pdf', type: 'pdf' },
+    { name: 'Employee Engagement & Prediction', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/Employee Engagement & Prediction.ipynb', type: 'pdf' },
+    { name: 'Employee Engagement & Prediction Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/Employee Engagement & Prediction.pdf', type: 'pdf' },
+    { name: 'Additional-Analysis', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/Additional-Analysis.ipynb', type: 'pdf' },
+    { name: 'Additional-Analysis Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/Additional-Analysis.pdf', type: 'pdf' },
+  ],
 };
 
 function FileIcon({ type }: { type: string }) {
