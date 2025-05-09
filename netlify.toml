@@ -5,14 +5,14 @@
 # 1) Redirect when the user directly visits /chat → we add a trailing slash so the proxy works correctly
 [[redirects]]
   from    = "/chat"
-  to      = "https://51.44.18.63:8080/"
+  to      = "http://51.44.18.63:8080/"
   status  = 301
   force   = true
 
 # 2) Proxy all resources under /chat/ (HTML + JS + CSS + API + WebSockets)
 [[redirects]]
   from    = "/chat/*"
-  to      = "https://51.44.18.63:8080/:splat"
+  to      = "http://51.44.18.63:8080/:splat"
   status  = 200
   force   = true
 
