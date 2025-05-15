@@ -2,12 +2,6 @@
   command = "npm run build"
   publish = "dist"
 
-# 3) General rule for SPA applications (React/Vue/...):
-[[redirects]]
-  from    = "/*"
-  to      = "/index.html"
-  status  = 200
-  
 # 1) Redirect when the user directly visits /chat → we add a trailing slash so the proxy works correctly
 [[redirects]]
   from    = "/chat"
@@ -22,3 +16,8 @@
   status  = 200
   force   = true
 
+# 3) General rule for SPA applications (React/Vue/...):
+[[redirects]]
+  from    = "/*"
+  to      = "/index.html"
+  status  = 200
