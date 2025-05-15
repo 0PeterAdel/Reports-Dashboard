@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Loader2, Upload } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import axios from 'axios';
 
 interface Message {
   id: string;
@@ -48,17 +49,8 @@ export default function Chat() {
 
     try {
       setIsLoading(true);
-      const response = await fetch('http://51.44.18.63:8080/upload', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to upload files');
-      }
-
-      const result = await response.json();
-      alert(result.status); // "Files uploaded and indexed successfully"
+      const response = await axios.post('http://51.44.18.63:8080/upload', formData);
+      alert(response.data.status); // "Files uploaded and indexed successfully"
     } catch (error) {
       console.error('Error uploading files:', error);
       alert('Failed to upload files. Please try again.');
@@ -84,72 +76,25 @@ export default function Chat() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://51.44.18.63:8080/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: input,
-          history: messages.map(msg => ({
-            role: msg.type,
-            content: msg.content,
-          })),
-          system_prompt: 'You are a helpful assistant.',
-          temperature: 0.7,
-          max_new_tokens: 256,
-        }),
+      const response = await axios.post('http://51.44.18.63:8080/chat', {
+        message: input,
+        history: messages.map(msg => ({
+          role: msg.type,
+          content: msg.content,
+        })),
+        system_prompt: 'You are a helpful assistant.',
+        temperature: 0.7,
+        max_new_tokens: 256,
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to fetch response');
-      }
+      const botMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        type: 'bot',
+        content: response.data.response, // Extract the response field
+        timestamp: new Date(),
+      };
 
-      const reader = response.body?.getReader();
-      if (!reader) {
-        throw new Error('No readable stream available');
-      }
-
-      const decoder = new TextDecoder();
-      let botResponse = '';
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        const chunk = decoder.decode(value, { stream: true });
-        botResponse += chunk;
-
-        // Update UI incrementally
-        setMessages(prev => {
-          const updatedMessages = [...prev];
-          const lastMessage = updatedMessages[updatedMessages.length - 1];
-          if (lastMessage.type === 'bot') {
-            lastMessage.content = botResponse;
-          } else {
-            updatedMessages.push({
-              id: (Date.now() + 1).toString(),
-              type: 'bot',
-              content: botResponse,
-              timestamp: new Date(),
-            });
-          }
-          return updatedMessages;
-        });
-      }
-
-      // Finalize the bot message
-      setMessages(prev => {
-        const updatedMessages = [...prev];
-        const lastMessage = updatedMessages[updatedMessages.length - 1];
-        if (lastMessage.type !== 'bot') {
-          updatedMessages.push({
-            id: (Date.now() + 1).toString(),
-            type: 'bot',
-            content: botResponse,
-            timestamp: new Date(),
-          });
-        }
-        return updatedMessages;
-      });
+      setMessages(prev => [...prev, botMessage]);
     } catch (error) {
       console.error('Error sending message:', error);
       const errorMessage: Message = {

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import DataModeling from './pages/DataModeling'
 import MarketResearch from './pages/MarketResearch';
 import Reports from './pages/Reports';
 import DataSet from './pages/DataSet';

@@ -5,6 +5,7 @@ import { Home, LayoutDashboard, FileText, Database, Contact, Cuboid as Cube, Lin
 const navItems = [
   { id: 'home', label: 'Home', icon: <Home className="w-5 h-5" />, to: '/' },
   { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard className="w-5 h-5" />, to: '/dashboard' },
+  { id: 'modeling', label: 'Data-Modeling', icon: <GitGraph className="w-5 h-5" />, to: '/data-modeling' },
   { id: 'forecasting', label: 'Data-Forecasting', icon: <LineChart className="w-5 h-5" />, to: '/data-forecasting' },
   { id: 'mining', label: 'Data-Mining', icon: <PieChart className="w-5 h-5" />, to: '/data-mining' },
   { id: 'decision', label: 'Data-Driven-Decision-Making', icon: <Brain className="w-5 h-5" />, to: '/decision-making' },
