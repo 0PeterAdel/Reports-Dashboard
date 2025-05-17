@@ -2,24 +2,22 @@
   command = "npm run build"
   publish = "dist"
 
-# API proxy with CORS support
+# 1) Redirect when the user directly visits /chat → we add a trailing slash so the proxy works correctly
 [[redirects]]
-  from = "/api/*"
-  to = "http://51.44.18.63:8080/:splat"
-  status = 200
-  force = true
-  headers = {Access-Control-Allow-Origin = "*"}
+  from    = "/chat/"
+  to      = "http://51.44.18.63:8080/:splat"
+  status  = 200
+  force   = true
 
-# OPTIONS support for CORS preflight requests
+ 2) Proxy all resources under /chat/ (HTML + JS + CSS + API + WebSockets)
 [[redirects]]
-  from = "/api/*"
-  to = "http://51.44.18.63:8080/:splat"
-  status = 204
-  method = "OPTIONS"
-  headers = {Access-Control-Allow-Origin = "*", Access-Control-Allow-Headers = "*", Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"}
+  from    = "/chat/*"
+  to      = "http://51.44.18.63:8080"
+  status  = 200
+  force   = true
 
-# SPA fallback
+# 3) General rule for SPA applications (React/Vue/...):
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from    = "/*"
+  to      = "/index.html"
+  status  = 200
