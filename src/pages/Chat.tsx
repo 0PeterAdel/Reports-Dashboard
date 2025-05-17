@@ -10,6 +10,9 @@ interface Message {
   timestamp: Date;
 }
 
+// API base URL
+const API_URL = 'http://51.44.18.63:8080';
+
 export default function Chat() {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -37,26 +40,54 @@ export default function Chat() {
   };
 
   const handleUpload = async () => {
-    if (!files) {
+    if (!files || files.length === 0) {
       alert('Please select at least one file.');
       return;
     }
 
     const formData = new FormData();
-    for (let file of files) {
-      formData.append('files', file);
+    for (let i = 0; i < files.length; i++) {
+      formData.append('files', files[i]);
     }
 
     try {
       setIsLoading(true);
-      const response = await axios.post('http://51.44.18.63:8080/upload', formData);
-      alert(response.data.status); // "Files uploaded and indexed successfully"
-    } catch (error) {
+      console.log('Uploading files...');
+      
+      const response = await axios.post(`${API_URL}/upload`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      
+      console.log('Upload response:', response.data);
+      alert(response.data.status);
+      
+      // Add a system message about successful upload
+      const successMessage: Message = {
+        id: Date.now().toString(),
+        type: 'bot',
+        content: `Successfully processed ${response.data.files_processed} files. You can now ask questions about them.`,
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, successMessage]);
+      
+    } catch (error: any) {
       console.error('Error uploading files:', error);
-      alert('Failed to upload files. Please try again.');
+      
+      let errorMessage = 'Failed to upload files. Please try again.';
+      if (error.response?.data?.detail) {
+        errorMessage += ` Error: ${error.response.data.detail}`;
+      }
+      
+      alert(errorMessage);
     } finally {
       setIsLoading(false);
-      setFiles(null); // Clear file input
+      
+      // Clear the file input by resetting its value
+      const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+      if (fileInput) fileInput.value = '';
+      setFiles(null);
     }
   };
 
@@ -72,37 +103,54 @@ export default function Chat() {
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const currentInput = input;
     setInput('');
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://51.44.18.63:8080/chat', {
-        message: input,
-        history: messages.map(msg => ({
-          role: msg.type,
-          content: msg.content,
-        })),
+      console.log('Sending message:', currentInput);
+      
+      // Convert message history to the format expected by the backend
+      const history = messages.map(msg => ({
+        role: msg.type === 'user' ? 'user' : 'assistant',
+        content: msg.content,
+      }));
+      
+      const response = await axios.post(`${API_URL}/chat`, {
+        message: currentInput,
+        history: history,
         system_prompt: 'You are a helpful assistant.',
         temperature: 0.7,
         max_new_tokens: 256,
       });
 
+      console.log('Chat response:', response.data);
+
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'bot',
-        content: response.data.response, // Extract the response field
+        content: response.data.response,
         timestamp: new Date(),
       };
 
       setMessages(prev => [...prev, botMessage]);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending message:', error);
+      
+      let errorContent = 'Sorry, an error occurred while processing your request. Please try again later.';
+      
+      if (error.response?.data?.detail) {
+        console.error('Response error:', error.response.data.detail);
+        errorContent = `Error: ${error.response.data.detail}`;
+      }
+      
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'bot',
-        content: 'Sorry, an error occurred while processing your request. Please try again later.',
+        content: errorContent,
         timestamp: new Date(),
       };
+      
       setMessages(prev => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
