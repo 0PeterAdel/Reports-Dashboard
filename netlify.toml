@@ -2,29 +2,15 @@
   command = "npm run build"
   publish = "dist"
 
-# 1) Redirect when the user directly visits /chat → we add a trailing slash so the proxy works correctly
+# Handle direct API requests - proxy to your backend
 [[redirects]]
-  from    = "/chat"
-  to      = "http://51.44.18.63:8080/"
-  status  = 301
-  force   = true
+  from = "/api/*"
+  to = "http://51.44.18.63:8080/:splat"
+  status = 200
+  force = true
 
- 2) Proxy all resources under /chat/ (HTML + JS + CSS + API + WebSockets)
+# SPA fallback
 [[redirects]]
-  from    = "/chat/*"
-  to      = "http://51.44.18.63:8080/:splat"
-  status  = 200
-  force   = true
-
-# 3)
-[[redirects]]
-  from    = "/upload"
-  to      = "http://51.44.18.63:8080/:splat"
-  status  = 200
-  force   = true
-
-# 4) General rule for SPA applications (React/Vue/...):
-[[redirects]]
-  from    = "/*"
-  to      = "/index.html"
-  status  = 200
+  from = "/*"
+  to = "/index.html"
+  status = 200
