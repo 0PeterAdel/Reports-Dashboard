@@ -2,12 +2,21 @@
   command = "npm run build"
   publish = "dist"
 
-# Handle direct API requests - proxy to your backend
+# API прокси с поддержкой CORS
 [[redirects]]
   from = "/api/*"
   to = "http://51.44.18.63:8080/:splat"
   status = 200
   force = true
+  headers = {Access-Control-Allow-Origin = "*"}
+
+# Поддержка OPTIONS для CORS preflight запросов
+[[redirects]]
+  from = "/api/*"
+  to = "http://51.44.18.63:8080/:splat"
+  status = 204
+  method = "OPTIONS"
+  headers = {Access-Control-Allow-Origin = "*", Access-Control-Allow-Headers = "*", Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"}
 
 # SPA fallback
 [[redirects]]
