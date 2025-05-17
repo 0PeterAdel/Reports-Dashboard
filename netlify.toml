@@ -2,7 +2,7 @@
   command = "npm run build"
   publish = "dist"
 
-# API прокси с поддержкой CORS
+# API proxy with CORS support
 [[redirects]]
   from = "/api/*"
   to = "http://51.44.18.63:8080/:splat"
@@ -10,7 +10,7 @@
   force = true
   headers = {Access-Control-Allow-Origin = "*"}
 
-# Поддержка OPTIONS для CORS preflight запросов
+# OPTIONS support for CORS preflight requests
 [[redirects]]
   from = "/api/*"
   to = "http://51.44.18.63:8080/:splat"

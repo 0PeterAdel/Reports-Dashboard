@@ -12,7 +12,6 @@ interface Message {
 
 // API base URL
 const API_URL = '/api';
-// const API_URL = 'http://51.44.18.63:8080';
 
 export default function Chat() {
   const [messages, setMessages] = useState<Message[]>([
