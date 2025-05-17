@@ -18,7 +18,7 @@ export default function Chat() {
     {
       id: '1',
       type: 'bot',
-      content: "Hello! I'm your AI assistant. Please upload a document to start chatting.",
+      content: "The page has been changed. Please refresh page.",
       timestamp: new Date(),
     },
   ]);
@@ -135,9 +135,9 @@ export default function Chat() {
 
       setMessages(prev => [...prev, botMessage]);
     } catch (error: any) {
-      console.error('Error sending message:', error);
+      console.error('The page has been changed. Please refresh page.', error);
       
-      let errorContent = 'Sorry, an error occurred while processing your request. Please try again later.';
+      let errorContent = 'The page has been changed. Please refresh page.';
       
       if (error.response?.data?.detail) {
         console.error('Response error:', error.response.data.detail);
