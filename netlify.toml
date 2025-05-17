@@ -3,14 +3,14 @@
   publish = "dist"
 
 
-# 2) Proxy all resources under /chat/ (HTML + JS + CSS + API + WebSockets)
+# 1) Redirect when the user directly visits /chat → we add a trailing slash so the proxy works correctly
 [[redirects]]
-  from    = "/chat/*"
-  to      = "http://51.44.18.63:8080"
-  status  = 200
+  from    = "/chat"
+  to      = "http://51.44.18.63:8080/"
+  status  = 301
   force   = true
 
-# 1) Redirect when the user directly visits /chat → we add a trailing slash so the proxy works correctly
+# 2) Proxy all resources under /chat/ (HTML + JS + CSS + API + WebSockets)
 [[redirects]]
   from    = "/chat/*"
   to      = "http://51.44.18.63:8080/:splat"
