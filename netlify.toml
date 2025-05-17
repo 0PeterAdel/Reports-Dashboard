@@ -4,7 +4,7 @@
 
 # 1) Redirect when the user directly visits /chat → we add a trailing slash so the proxy works correctly
 [[redirects]]
-  from    = "/chat/"
+  from    = "/chat/*"
   to      = "http://51.44.18.63:8080/:splat"
   status  = 200
   force   = true
