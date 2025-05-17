@@ -16,7 +16,14 @@
   status  = 200
   force   = true
 
-# 3) General rule for SPA applications (React/Vue/...):
+# 3)
+[[redirects]]
+  from    = "/upload"
+  to      = "http://51.44.18.63:8080/:splat"
+  status  = 200
+  force   = true
+
+# 4) General rule for SPA applications (React/Vue/...):
 [[redirects]]
   from    = "/*"
   to      = "/index.html"
