@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FileText, Download, FileSpreadsheet, FileImage, Link2 } from 'lucide-react';
 
 const tabs = [
+  { id: 'Additional', label: 'Additional Analysis' },
   { id: 'pestel', label: 'PESTEL Analysis' },
   { id: 'swot', label: 'SWOT Analysis' },
   { id: 'soar', label: 'SOAR Analysis' },
@@ -10,10 +11,17 @@ const tabs = [
   { id: 'Forces', label: 'Five Forces Analysis' },
   { id: 'Chain', label: 'Value Chain Analysis' },
   { id: 'Ocean', label: 'Blue Ocean Strategy' },
-  { id: 'Additional', label: 'Additional Analysis' }
 ];
 
 const analysisFiles = {
+  Additional: [
+    { name: 'Turnover & KPI Analysis', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/code_Turnover & KPI Analysis.pdf', type: 'pdf' },
+    { name: 'Turnover & KPI Analysis Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/Turnover & KPI Analysis.pdf', type: 'pdf' },
+    { name: 'Employee Engagement & Prediction', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/code_Employee Engagement & Prediction.pdf', type: 'pdf' },
+    { name: 'Employee Engagement & Prediction Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/Employee Engagement & Prediction.pdf', type: 'pdf' },
+    { name: 'Additional-Analysis', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/code_Additional-Analysis.pdf', type: 'pdf' },
+    { name: 'Additional-Analysis Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/Additional-Analysis.pdf', type: 'pdf' },
+  ],
   pestel: [
     { name: 'PESTEL Analysis Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/1.PESTEL Analysis Report for HR Data/PESTEL Analysis Report for HR Data.pdf', type: 'pdf' },
     { name: 'PESTEL Analysis Report Excel', path: '/assets/Reports/10.Data-Driven-Decision-Making/1.PESTEL Analysis Report for HR Data/PESTEL Analysis Report for HR Data.xlsx', type: 'excel' },
@@ -42,14 +50,6 @@ const analysisFiles = {
   ],
   Ocean: [
     { name: 'Blue Ocean Strategy Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/08.Blue Ocean Strategy Report for HR Data/Blue Ocean Strategy (ERRC Analysis )Report for HR Data.pdf', type: 'pdf' },
-  ],
-  Additional: [
-    { name: 'Turnover & KPI Analysis', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/code_Turnover & KPI Analysis.pdf', type: 'pdf' },
-    { name: 'Turnover & KPI Analysis Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/Turnover & KPI Analysis.pdf', type: 'pdf' },
-    { name: 'Employee Engagement & Prediction', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/code_Employee Engagement & Prediction.pdf', type: 'pdf' },
-    { name: 'Employee Engagement & Prediction Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/Employee Engagement & Prediction.pdf', type: 'pdf' },
-    { name: 'Additional-Analysis', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/code_Additional-Analysis.pdf', type: 'pdf' },
-    { name: 'Additional-Analysis Report', path: '/assets/Reports/10.Data-Driven-Decision-Making/09.Additional-Analysis/Additional-Analysis.pdf', type: 'pdf' },
   ],
 };
 
